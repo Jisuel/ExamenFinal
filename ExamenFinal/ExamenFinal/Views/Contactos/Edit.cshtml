@@ -1,0 +1,120 @@
+﻿@model ExamenFinal.Models.Contactos
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/css/style-responsive.css" rel="stylesheet" />
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/font.css" type="text/css" />
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/morris.css" type="text/css" />
+    @Styles.Render("~/Content/css")
+    <script src="/js/jquery2.0.3.min.js"></script>
+
+</head>
+<body>
+    <section id="container">
+        <header class="header fixed-top clearfix">
+            <div class="brand">
+                <a class="logo">
+                    REGISTROS
+                </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <div class="leftside-navigation">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <li class="sub-menu">
+                            @Html.ActionLink("Contactos", "Index", "Contactos", new { @Class = "active" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Visitas", "Index", "Visitas")
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </section>
+    <section id="main-content" style="margin-top:100px; padding-left:40px">
+        <section id="wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Editar</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.ID)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Documento_Identidad, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Documento_Identidad, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Documento_Identidad, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Fecha_Creacion, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Fecha_Creacion, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Fecha_Creacion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Guardar" class="btn btn-default" style="background-color:rebeccapurple; color:white" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div>
+                @Html.ActionLink("Volver a la Lista", "Index")
+            </div>
+        </section>
+    </section>
+    <section>
+        <div class="footer">
+            <div class="wthree-copyright">
+                <p>© 2019 Registros. Derechos Reservados | 2017-5319</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

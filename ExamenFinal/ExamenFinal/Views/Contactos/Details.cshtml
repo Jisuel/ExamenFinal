@@ -1,0 +1,105 @@
+﻿@model ExamenFinal.Models.Contactos
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/css/style-responsive.css" rel="stylesheet" />
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/font.css" type="text/css" />
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/morris.css" type="text/css" />
+    @Styles.Render("~/Content/css")
+    <script src="/js/jquery2.0.3.min.js"></script>
+
+</head>
+<body>
+    <section id="container">
+        <header class="header fixed-top clearfix">
+            <div class="brand">
+                <a class="logo">
+                    REGISTROS
+                </a>
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars"></div>
+                </div>
+            </div>
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse">
+                <div class="leftside-navigation">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <li class="sub-menu">
+                            @Html.ActionLink("Contactos", "Index", "Contactos", new { @Class = "active" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Visitas", "Index", "Visitas")
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </section>
+    <section id="main-content" style="margin-top:100px; padding-left:40px">
+        <section id="wrapper">
+            <div>
+                <h4>Detalles</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Apellido)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Apellido)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Documento_Identidad)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Documento_Identidad)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Fecha_Creacion)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Fecha_Creacion)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Editar", "Edit", new { id = Model.ID }, new { @Class = "btn btn-default" }) |
+                @Html.ActionLink("Volver a la Lista", "Index")
+            </p>
+        </section>
+    </section>
+    <section>
+        <div class="footer">
+            <div class="wthree-copyright">
+                <p>© 2019 Registros. Derechos Reservados | 2017-5319</p>
+            </div>
+        </div>
+    </section>
+</body>
